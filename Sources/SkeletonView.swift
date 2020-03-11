@@ -94,9 +94,7 @@ public extension UIView {
 
 extension UIView {
     @objc func skeletonLayoutSubviews() {
-        defer {
-            skeletonLayoutSubviews()
-        }
+        skeletonLayoutSubviews()
         guard isSkeletonActive else { return }
         layoutSkeletonIfNeeded()
     }
