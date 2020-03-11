@@ -94,7 +94,9 @@ public extension UIView {
 
 extension UIView {
     @objc func skeletonLayoutSubviews() {
-        skeletonLayoutSubviews()
+        defer {
+            skeletonLayoutSubviews()
+        }
         guard isSkeletonActive else { return }
         layoutSkeletonIfNeeded()
     }
@@ -248,6 +250,7 @@ extension UIView {
             else { return }
 
         self.skeletonLayer = skeletonLayer
+        layer.borderWidth = 0
         layer.insertSublayer(skeletonLayer,
                              at: UInt32.max,
                              transition: config.transition) { [weak self] in
