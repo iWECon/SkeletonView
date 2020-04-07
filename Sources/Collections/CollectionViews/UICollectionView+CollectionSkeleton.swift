@@ -68,11 +68,13 @@ public extension UICollectionView {
         
         let dataSource = SkeletonCollectionDataSource(collectionViewDataSource: originalDataSource, rowHeight: 0.0)
         self.skeletonDataSource = dataSource
-        performBatchUpdates({
-            self.reloadData()
-        }) { (done) in
-            completion(done)
-            
-        }
+        self.reloadData()
+        completion(true)
+//        performBatchUpdates({
+//            self.reloadData()
+//        }) { (done) in
+//            completion(done)
+//
+//        }
     }
 }
