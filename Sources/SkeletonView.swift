@@ -249,6 +249,10 @@ extension UIView {
 
         self.skeletonLayer = skeletonLayer
         layer.borderWidth = 0
+        if layer.cornerRadius == 0 {
+            layer.cornerRadius = 4
+            layer.masksToBounds = true
+        }
         layer.insertSublayer(skeletonLayer,
                              at: UInt32.max,
                              transition: config.transition) { [weak self] in
